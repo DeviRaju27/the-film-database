@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo-header {
+  height: 80px;
+ }
+
+.btn-logo-color{
+  background-color: #ff5757;
+  color:white;
+  transition: background-color 0.5s;
+  transition: color 0.5s;
+}
+.btn-logo-color:hover{
+  background-color:white ;
+  color:#ff5757;
+}
+.custom-border {
+  border:1px solid #ff5733;
+  margin: 1px;
+
+}
+.link-border {
+  border:1px solid #ff5733;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+.search-bg {
+  background-image: url('./assets/tyson-moultrie-BQTHOGNHo08-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.search-bg::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(255,66,87,0.3);
+}
+.search-bg > * {
+  position: relative;
+  z-index: 1;
+}
+.detail-img-div{
+    width: 60%;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 576px) {
+  .result {
+      height: auto;
+      width: 100%;
+    }
+    .detail-img-div{
+      height: auto;
+      width: 50%;
+    }
+    .detail-img {
+      height: auto;
+      width: 100%;
+    }
+}
+@media (min-width: 767px) {
+    .logo-header {
+        height: 60px;
+    }
+    .header-right a {
+      font-size: 15px;
+    }
+    .result {
+      height: auto;
+      width: 100%;
+    }
+    .detail-img-div {
+    height: auto;
+    width: 100%;
+    }
+}
+@media (min-width: 992px) { }
+
+@media (min-width: 1200px) {
+    .detail-img-div {
+        height: auto;
+        width: 75%;
+    }
+ }
+@media (min-width: 1400px) { }
