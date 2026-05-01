@@ -40,12 +40,12 @@ function Home() {
 
     const openDetails = async (id) => {
         try {
-            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=8ab358e64193e91aa0501da86049db98`);
+            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=8ab358e64193e91aa0501da86049db98&append_to_response=credits`);
             const  data  = await res.json();
             
            
             setState(prev => ({...prev, selected: data}));
-            console.log(state);
+            console.log(data.credits);
             
             } catch (err) {
                 console.log(err);

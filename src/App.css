@@ -59,6 +59,15 @@ h1, h2, h3 {
 .footer-div span{
   font-size: 10px;
 }
+.cast-div-id {
+  width: 100px;          /* fixed card width */
+  flex-shrink: 0; 
+}
+.cast-img {
+  width: 100%;
+  
+
+}
 
 @media (min-width: 576px) {
   .result {

@@ -26,7 +26,22 @@ const MovieDetails = ({ selected, close }) => {
                         <p>Runtime: <span className="fw-bold">{selected.runtime} minutes </span></p>
                         <p>Rating: <span className="fw-bold">{selected.vote_average.toFixed(1)}</span>/10 (voted by {selected.vote_count})</p>
                         <p>{selected.overview}</p>
-                        <button onClick={close} className='btn btn-logo-color'>Go back</button>
+                        <h4>Cast</h4>
+                         <div className="d-flex overflow-auto gap-2 py-2 cast-div">
+                            {selected.credits.cast.slice(0,10).map(actor=>(
+                           
+                                <div key={actor.id} className="cast-div-id">
+                                    
+                                    <img className='object-fit-cover border rounded-2 cast-img' src={actor.profile_path 
+                                    ? `https://image.tmdb.org/t/p/w500${actor.profile_path}` 
+                                    :  "https://placehold.co/100x150"} alt='' />
+                                    <p>{actor.name}</p>
+                                    
+                                </div>
+                           
+                        ))}
+                         </div>
+                        <button onClick={close} className='btn btn-logo-color my-3'>back to results</button>
                     </div>
                 </div>
             </div>
