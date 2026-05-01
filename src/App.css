@@ -56,6 +56,9 @@ h1, h2, h3 {
     width: 60%;
     margin-bottom: 1rem;
 }
+.footer-div span{
+  font-size: 10px;
+}
 
 @media (min-width: 576px) {
   .result {
