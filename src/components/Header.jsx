@@ -1,4 +1,5 @@
 import db from "../assets/tfdb_logo_orginial_bg.png";
+import { Link } from "react-router-dom";
 
 
 function Header() {
@@ -7,27 +8,26 @@ function Header() {
             <nav className="container">
                 <div className="d-flex flex-wrap align-items-center justify-content-between">
                     <div className=" text-center my-2 d-md-none">
-                        <img src={db} className="img-fluid logo-header" />
+                        <Link to='/'><img src={db} className="img-fluid logo-header" /></Link>
                     </div>
                     <div className="text-center my-2 d-none d-md-block">
-                        <img src={db} className="img-fluid logo-header" />
+                         <Link to='/'><img src={db} className="img-fluid logo-header" /></Link>
                     </div>
 
                     <div className=" text-center my-2 d-md-none">
-                        <h5 className="m-0"><a href="" className="text-decoration-none text-dark">The Film DataBase</a></h5>
+                        <h5 className="m-0"><Link to='/' className="text-decoration-none text-dark">The Film DataBase</Link></h5>
                     </div>
 
                     <div className="header-center ft-inter d-none d-md-block">
-                        <h3 className="m-0"><a href="" className="text-decoration-none text-dark">The Film DataBase</a></h3>
+                        <h3 className="m-0"><Link to='/' className="text-decoration-none text-dark">The Film DataBase</Link></h3>
                     </div>
 
                     <div className="header-right link-border my-auto d-none d-md-block">
-                        {/* <a href='' className="text-white me-3 text-decoration-none">Home</a> */}
-                        <a href='' className="text-dark text-decoration-none fs-5 ft-bebas">Trending movies</a>
+                    
+                       <Link to='/' className="text-dark text-decoration-none fs-5 ft-bebas">Trending movies</Link>
                     </div>
                     <div className="header-right  link-border  my-auto d-md-none">
-                        {/* <a href='' className="text-white me-3 text-decoration-none">Home</a> */}
-                        <a href='' className="text-dark text-decoration-none">Trending <br/> movies</a>
+                        <Link to='/' className="text-dark text-decoration-none">Trending <br/> movies</Link>
                     </div>
 
                 </div>

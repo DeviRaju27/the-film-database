@@ -5,8 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer';
 import Favorites from "./pages/Favorites";
 import Home from './pages/Home'
-
-
+import MovieDetail from './pages/MovieDetail';
 
 function App() {
 
@@ -18,7 +17,7 @@ function App() {
           <div className='container-fluid'>
             <Routes>
               <Route path='/' element={<Home/>}/>
-              <Route path='/favorites' element={<Favorites/>}/>
+              <Route path='movie/:id' element={<MovieDetail/>}/>
             </Routes>
         </div>
       </main>

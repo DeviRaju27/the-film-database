@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import MovieDetails from './MovieDetail';
+import MovieDetail from './MovieDetail';
 import Result from './Result';
 import Search from './Search';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+
+    const navigate = useNavigate();
+
     const [state, setState] = useState({
         search: "",
         query: "",
-        results: [],
-        selected: {}
+        results: []
     });
 
     const handleInput = (event) => {
@@ -20,6 +23,7 @@ function Home() {
         event.preventDefault();
         setState(prev => ({...prev, query: prev.search}));
     }; 
+    
     useEffect(() => {
         if (!state.query || !state.query.trim()) {
 
@@ -33,42 +37,22 @@ function Home() {
        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=8ab358e64193e91aa0501da86049db98&query=${state.query}`)
        .then(res => {
             setState(prev => ({...prev, results : res.data.results}))
+            
        })
        .catch(err => console.log(err));
     }, [state.query]);
 
-
-    const openDetails = async (id) => {
-        try {
-            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=8ab358e64193e91aa0501da86049db98&append_to_response=credits`);
-            const  data  = await res.json();
-            
-           
-            setState(prev => ({...prev, selected: data}));
-            console.log(data.credits);
-            
-            } catch (err) {
-                console.log(err);
-            }       
-        }
-   
-    const close = () => {
-        setState((prevState) => {
-            return { ...prevState, selected: {} }
-        });
-    }   
+    const openDetails = (id) => {
+        navigate(`/movie/${id}`)
+    }  
     return (
-        <>
-            {typeof state.selected.title !== "undefined" ? (
-                <MovieDetails selected={state.selected} close={close} />
-            ) : (
                 <>
                 <div className='row'>
                     <div className='col-12 col-md-12 col-sm-12 px-0'>
                         <div className='search-bg text-white py-5'>
                             
                             <div className="w-100 text-center text-white my-5 mx-auto f-fantasy">
-                                <h3>Explore millions of movies and TV shows all in one place.</h3>
+                                <h3>Dive into millions of movies, all in one place.</h3>
                                 <Search handleInput={handleInput} SearchResult={SearchResult} />
                             </div>
                         </div>
@@ -90,8 +74,8 @@ function Home() {
                     </div>
                     <div className="col-12 bg-white">
                             <div className="row mx-3">
-                                {state.results && state.results.map((result, i) => (
-                                    <div className='col-6 col-sm-6 col-md-3 col-lg-2' key={i}>
+                                {state.results && state.results.map((result) => (
+                                    <div className='col-6 col-sm-6 col-md-3 col-lg-2' key={result.id}>
                                         <Result result={result} openDetails={openDetails} />
                                     </div>
                                 ))}
@@ -100,8 +84,8 @@ function Home() {
                 </div>
                </>
             )}
-        </>
-    );
-}
+        
+    
+
 
 export default Home;
