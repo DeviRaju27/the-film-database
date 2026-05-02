@@ -6,7 +6,8 @@ function Result({ result, openDetails }) {
         <div className='result bg-white text-black text-center mx-auto' onClick={() => openDetails(result.id)}>
             <div className='border rounded-2 overflow-hidden'>
                 
-                    <img src={`https://image.tmdb.org/t/p/w500${result.poster_path}`} alt='' className="img-fluid object-fit-cover " />
+                    <img src={ result.poster_path ? `https://image.tmdb.org/t/p/w500${result.poster_path}` :
+                "https://placehold.co/300x450?text=No+Image" } alt='' className="img-fluid object-fit-cover " />
                 
             </div>
 
